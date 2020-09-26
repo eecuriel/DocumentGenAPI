@@ -1,4 +1,4 @@
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
 public class EmailConfiguration
 {

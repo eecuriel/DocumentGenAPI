@@ -3,16 +3,16 @@ using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyExpManAPI.Context;
-using MyExpManAPI.Entitie;
-using MyExpManAPI.Helpers;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Entitie;
+using DocumentGenAPI.Helpers;
+using DocumentGenAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     public class CustomBaseController : ControllerBase
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
 public class ResetPasswordModel
     {

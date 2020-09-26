@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Models;
 
-namespace MyExpManAPI.Context
+namespace DocumentGenAPI.Context
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     { 
@@ -16,10 +16,12 @@ namespace MyExpManAPI.Context
         public DbSet<Currency> Currencies {get; set;}
         public DbSet<DocumentDetail> DocumentDetails {get; set;}
         public DbSet<DocumentHeader> DocumentHeaders {get; set;}
-        public DbSet<DocumentIncome> DocumentIncomes {get; set;}
-        public DbSet<Frequency> Frequencies {get; set;}
+        public DbSet<DocumentExtraCharge> DocumentExtraCharges {get; set;}
+        public DbSet<Customer> Customers {get; set;}
         public DbSet<ExpenseLog> ExpenseLogs {get; set;}
         public DbSet<UserAditionalData> UserGenerals {get; set;}
+        
+        public DbSet<DocumentTerm> DocumentTerms {get; set;}
         
     }
 }

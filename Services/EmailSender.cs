@@ -1,10 +1,10 @@
 using System.Net.Mail;
 using MimeKit;
 using MailKit.Net.Smtp;
-using MyExpManAPI.Helpers;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Helpers;
+using DocumentGenAPI.Models;
 
-namespace MyExpManAPI.Services
+namespace DocumentGenAPI.Services
 {
     public class EmailSender : IEmailSender
     {

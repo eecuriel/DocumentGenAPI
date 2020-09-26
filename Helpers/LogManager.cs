@@ -6,11 +6,11 @@ using System.Threading;
 using System.Data;
 using System;
 using System.Threading.Tasks;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Context;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Context;
 
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     public class LogManager : ILogManager
     {

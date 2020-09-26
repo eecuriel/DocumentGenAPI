@@ -1,5 +1,5 @@
 using System.Reflection.Metadata;
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class UserInfo
     {

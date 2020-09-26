@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MyExpManAPI.Migrations
+namespace DocumentGenAPI.Migrations
 {
-    public partial class InitialFull : Migration
+    public partial class InitialMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -73,31 +73,74 @@ namespace MyExpManAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DocumentDetails",
+                name: "Customers",
                 columns: table => new
                 {
-                    IdTransaction = table.Column<int>(nullable: false)
+                    IdCustomer = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdDocument = table.Column<int>(nullable: false),
-                    IdConcept = table.Column<int>(nullable: false),
-                    TransactionAmount = table.Column<decimal>(type: "money", nullable: false),
-                    IdCurrency = table.Column<int>(nullable: false)
+                    IdUserOwner = table.Column<string>(nullable: true),
+                    CustomerFirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    CustomerLastName = table.Column<string>(maxLength: 100, nullable: false),
+                    ComercialName = table.Column<string>(maxLength: 100, nullable: true),
+                    CustomerEmail = table.Column<string>(nullable: false),
+                    CustomerPhone1 = table.Column<string>(nullable: true),
+                    CustomerPhone2 = table.Column<string>(nullable: true),
+                    CustomerAddress = table.Column<string>(maxLength: 100, nullable: true),
+                    CustomerCountry = table.Column<string>(maxLength: 100, nullable: true),
+                    CustomerCity = table.Column<string>(maxLength: 100, nullable: true),
+                    CustomerState = table.Column<string>(maxLength: 100, nullable: true),
+                    CustomerPostalCode = table.Column<int>(maxLength: 10, nullable: false),
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false),
+                    CustomerCreationDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DocumentDetails", x => x.IdTransaction);
+                    table.PrimaryKey("PK_Customers", x => x.IdCustomer);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DocumentDetails",
+                columns: table => new
+                {
+                    IdItem = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdDocument = table.Column<string>(nullable: true),
+                    ItemDescription = table.Column<string>(nullable: true),
+                    ItemQty = table.Column<int>(nullable: false),
+                    IdCurrency = table.Column<decimal>(type: "money", nullable: false),
+                    ItemAmount = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DocumentDetails", x => x.IdItem);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DocumentExtraCharges",
+                columns: table => new
+                {
+                    IdCharge = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdDocument = table.Column<string>(nullable: true),
+                    IdCurrency = table.Column<int>(nullable: false),
+                    ChargeDescription = table.Column<string>(maxLength: 50, nullable: false),
+                    ChargeAmount = table.Column<decimal>(type: "money", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DocumentExtraCharges", x => x.IdCharge);
                 });
 
             migrationBuilder.CreateTable(
                 name: "DocumentHeaders",
                 columns: table => new
                 {
-                    IdDocument = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DocumentDescription = table.Column<string>(maxLength: 50, nullable: false),
+                    IdDocument = table.Column<string>(nullable: false),
                     IdUser = table.Column<string>(nullable: true),
-                    IdIncomeList = table.Column<int>(nullable: false),
-                    IdFrenquency = table.Column<int>(nullable: false),
+                    DocumentDescription = table.Column<string>(maxLength: 50, nullable: false),
+                    DocumentType = table.Column<int>(nullable: false),
+                    Logopic = table.Column<string>(nullable: true),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     ModificationDate = table.Column<DateTime>(nullable: false)
                 },
@@ -107,32 +150,46 @@ namespace MyExpManAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DocumentIncomes",
+                name: "DocumentTerms",
                 columns: table => new
                 {
-                    IdIncomeList = table.Column<int>(nullable: false)
+                    IdTerm = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IncomeDescription = table.Column<string>(maxLength: 50, nullable: false),
-                    IdDocument = table.Column<int>(nullable: false),
-                    IncomeAmount = table.Column<decimal>(type: "money", nullable: false),
-                    IdCurrency = table.Column<int>(nullable: false)
+                    IdDocument = table.Column<string>(nullable: true),
+                    TermDescription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DocumentIncomes", x => x.IdIncomeList);
+                    table.PrimaryKey("PK_DocumentTerms", x => x.IdTerm);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Frequencies",
+                name: "ExpenseLogs",
                 columns: table => new
                 {
-                    IdFrenquency = table.Column<int>(nullable: false)
+                    EventID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FrequencyDescription = table.Column<string>(maxLength: 50, nullable: false)
+                    EventArgument = table.Column<string>(nullable: true),
+                    EventContext = table.Column<string>(nullable: true),
+                    EventDateGeneration = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Frequencies", x => x.IdFrenquency);
+                    table.PrimaryKey("PK_ExpenseLogs", x => x.EventID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserGenerals",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    Profilepic = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserGenerals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -305,16 +362,25 @@ namespace MyExpManAPI.Migrations
                 name: "Currencies");
 
             migrationBuilder.DropTable(
+                name: "Customers");
+
+            migrationBuilder.DropTable(
                 name: "DocumentDetails");
+
+            migrationBuilder.DropTable(
+                name: "DocumentExtraCharges");
 
             migrationBuilder.DropTable(
                 name: "DocumentHeaders");
 
             migrationBuilder.DropTable(
-                name: "DocumentIncomes");
+                name: "DocumentTerms");
 
             migrationBuilder.DropTable(
-                name: "Frequencies");
+                name: "ExpenseLogs");
+
+            migrationBuilder.DropTable(
+                name: "UserGenerals");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

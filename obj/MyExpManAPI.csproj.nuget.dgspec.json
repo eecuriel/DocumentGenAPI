@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj": {}
+    "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj": {
+    "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj",
-        "projectName": "MyExpManAPI",
-        "projectPath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj",
+        "projectUniqueName": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj",
+        "projectName": "DocumentGenAPI",
+        "projectPath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj",
         "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
         "outputPath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\obj\\",
         "projectStyle": "PackageReference",

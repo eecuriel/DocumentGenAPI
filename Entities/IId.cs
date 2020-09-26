@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Entitie
+namespace DocumentGenAPI.Entitie
 {
     public interface IId
     {

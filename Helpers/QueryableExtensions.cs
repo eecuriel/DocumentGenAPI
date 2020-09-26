@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Models;
 
-namespace  MyExpManAPI.Helpers
+namespace  DocumentGenAPI.Helpers
 {
     public static class QueryableExtensions
     {

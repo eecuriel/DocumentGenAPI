@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Validators
+namespace DocumentGenAPI.Validators
 {
     public class FilesSizeValidator: ValidationAttribute
     {

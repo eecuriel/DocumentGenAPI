@@ -1,4 +1,4 @@
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class UserRoleDTO
     {

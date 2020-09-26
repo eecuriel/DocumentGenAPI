@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
-namespace MyExpManAPI.Entities
+namespace DocumentGenAPI.Entities
 {
     public class UserAditionalData
     {

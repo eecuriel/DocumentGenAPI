@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MyExpManAPI.Entities;
+using DocumentGenAPI.Entities;
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     public class ExceptionFilters : ExceptionFilterAttribute
     {

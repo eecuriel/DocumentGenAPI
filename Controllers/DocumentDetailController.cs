@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MyExpManAPI.Context;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Helpers;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Helpers;
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -28,11 +28,10 @@ namespace MyExpManAPI.Controllers
             context =_context;
             mapper = _mapper;
             logmanager =_logmanager;
-
         }
 
-        // GET api/DocumentDetail/expensedetail
-        [HttpGet("expensedetail")]
+        // GET api/DocumentDetail/Documentdetail
+        [HttpGet("Documentdetail")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin,regularuser")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "user")]
         public  async Task<ActionResult<IEnumerable<DocumentDetail>>> Get() 
@@ -42,13 +41,13 @@ namespace MyExpManAPI.Controllers
             return  documentdetail;
         } 
 
-          // GET api/DocumentDetail/expensedetailbyid/1
-        [HttpGet("expensedetailbyid/{id}",Name="OneExpenseDetail")]
+          // GET api/DocumentDetail/Documentdetailbyid/00001
+        [HttpGet("Documentdetailbyid/{id}",Name="OneDocumentDetail")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles= "admin,regularuser")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles= "user")]
-        public async Task<ActionResult<DocumentDetail>> GetbyId(int id) 
+        public async Task<ActionResult<DocumentDetail>> GetbyId(string id) 
         {
-            var documentdetail  = await context.DocumentDetails.FirstOrDefaultAsync(x => x.IdTransaction == id);
+            var documentdetail  = await context.DocumentDetails.FirstOrDefaultAsync(x => x.IdDocument == id);
 
             if (documentdetail == null)
             {
@@ -58,59 +57,61 @@ namespace MyExpManAPI.Controllers
             return  documentdetail;
         }
 
-         // POST api/DocumentDetail/CreateExpenseDetail
-        [HttpPost("CreateExpenseDetail")]
+         // POST api/DocumentDetail/CreateDocumentDetail
+        [HttpPost("CreateDocumentDetail")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles= "admin,regularuser")]
         public async Task<ActionResult> Post([FromBody] DocumentDetail documentdetail)
         {
             
             var _documentdetail = new DocumentDetail{
                 
-                IdConcept = documentdetail.IdConcept,
-                IdCurrency = documentdetail.IdCurrency,
+                IdItem = documentdetail.IdItem,
                 IdDocument = documentdetail.IdDocument,
-                TransactionAmount = documentdetail.TransactionAmount
+                ItemDescription = documentdetail.ItemDescription,
+                ItemQty = documentdetail.ItemQty,
+                IdCurrency = documentdetail.IdCurrency,
+                ItemAmount = documentdetail.ItemAmount
             };
             context.Add(_documentdetail);
             await context.SaveChangesAsync();
 
-            logmanager.CreateLog("Informacion",$"Transaction No.{_documentdetail.IdTransaction} has been created");
+            logmanager.CreateLog("Informacion",$"Item No.{_documentdetail.IdItem} has been created");
 
-            return new CreatedAtRouteResult("OneExpenseDetail", new { id = documentdetail.IdTransaction}, documentdetail);
+            return new CreatedAtRouteResult("OneDocumentDetail", new { id = documentdetail.IdItem}, documentdetail);
         }
 
-         // PUT api/DocumentDetail/UpdateExpenseDetail/1
-        [HttpPut("UpdateExpenseDetail/{id}")]
+         // PUT api/DocumentDetail/UpdateDocumentDetail/1
+        [HttpPut("UpdateDocumentDetail/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,  Roles= "admin,regularuser")]
         public async Task<ActionResult> Put(int id, [FromBody] DocumentDetail documentdetail)
         {
-            if(id !=  documentdetail.IdTransaction)
+            if(id !=  documentdetail.IdItem)
             {
                 return BadRequest();
             }
 
             context.Entry(documentdetail).State = EntityState.Modified;
             await context.SaveChangesAsync();
-            logmanager.CreateLog("Informacion",$"Transactio No. {documentdetail.IdTransaction} has been updated");
+            logmanager.CreateLog("Informacion",$"Item No. {documentdetail.IdItem} has been updated");
 
-            return new CreatedAtRouteResult("OneExpenseDetail", new { id = documentdetail.IdTransaction}, documentdetail);
+            return new CreatedAtRouteResult("OneDocumentDetail", new { id = documentdetail.IdItem}, documentdetail);
         }
 
-        // DELETE api/DocumentDetail/DeleteExpenseDetail/1
-        [HttpDelete("DeleteExpenseDetail/{id}")]
+        // DELETE api/DocumentDetail/DeleteDocumentDetail/1
+        [HttpDelete("DeleteDocumentDetail/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,  Roles= "admin,regularuser")]
         public async Task<ActionResult> Delete(int id)
         {
         
-            var documentdetail =  await context.DocumentDetails.Select(x => x.IdTransaction).FirstOrDefaultAsync(x => x == id);
+            var documentdetail =  await context.DocumentDetails.Select(x => x.IdItem).FirstOrDefaultAsync(x => x == id);
 
             if (documentdetail == default(int))
             {
                 return NotFound();
             }
-            context.Remove(new DocumentDetail {IdTransaction= documentdetail});
+            context.Remove(new DocumentDetail {IdItem= documentdetail});
             await context.SaveChangesAsync();
-            logmanager.CreateLog("Informacion",$"Transaction No.{documentdetail} has been deleted");
+            logmanager.CreateLog("Informacion",$"Item No.{documentdetail} has been deleted");
             return NoContent();
         }
     }

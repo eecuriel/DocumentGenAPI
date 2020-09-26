@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     public class ActionFilters :  IActionFilter
     {

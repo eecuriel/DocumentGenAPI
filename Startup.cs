@@ -17,15 +17,15 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MyExpManAPI.Context;
-using MyExpManAPI.Helpers;
-using MyExpManAPI.Models;
-using MyExpManAPI.Services;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Helpers;
+using DocumentGenAPI.Models;
+using DocumentGenAPI.Services;
 using NetTopologySuite;
 using NetTopologySuite.Geometries;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace MyExpManAPI
+namespace DocumentGenAPI
 {
     public class Startup
     {

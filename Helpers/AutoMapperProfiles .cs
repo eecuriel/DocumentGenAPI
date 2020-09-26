@@ -1,7 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Models;
 using NetTopologySuite;
 using NetTopologySuite.Geometries;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     public class AutoMapperProfiles : Profile
     {

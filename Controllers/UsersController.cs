@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MyExpManAPI.Context;
-using MyExpManAPI.Helpers;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Helpers;
+using DocumentGenAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

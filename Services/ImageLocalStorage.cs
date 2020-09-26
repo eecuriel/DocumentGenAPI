@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Services
+namespace DocumentGenAPI.Services
 {
     public class ImageLocalStorage : IImageLocalStorage
     {

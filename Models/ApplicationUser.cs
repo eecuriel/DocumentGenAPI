@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class ApplicationUser : IdentityUser
     {

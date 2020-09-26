@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Http;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Validators;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Validators;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class UserAditionalDTO : UserAdionalPatchDTO
     {

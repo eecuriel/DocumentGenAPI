@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class PaginacionDTO
     {

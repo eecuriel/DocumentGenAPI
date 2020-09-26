@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj",
+  "FilePath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14389,7 +14389,7 @@
     ],
     "CSharpLanguageVersion": 900
   },
-  "RootNamespace": "MyExpManAPI",
+  "RootNamespace": "DocumentGenAPI",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

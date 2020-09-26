@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HP6tQujhzjwAflwall8dvizktm6umPxpFk2RizSkJKl+1ktg+ENqanXlia/SpruhFwg6s4at7iAx8mspWXPgsw==",
+  "dgSpecHash": "CvJqw5lK96RYilyIW31m7pSS3kfFl5uGZyk+KJ0Fo80Ifmb1C+ULnYRKtLd6p+daoDLMKnEgh6wD2/M/nVkwFw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\MyExpManAPI.csproj",
+  "projectFilePath": "C:\\Users\\eduar\\Documents\\WebAppDocumentGen\\03 Build\\DocumentGenAPI\\DocumentGenAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eduar\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",

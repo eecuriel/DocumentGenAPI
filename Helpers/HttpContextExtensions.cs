@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     public static class HttpContextExtensions
     {

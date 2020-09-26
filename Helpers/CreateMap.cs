@@ -1,5 +1,5 @@
 
-namespace MyExpManAPI.Helpers
+namespace DocumentGenAPI.Helpers
 {
     internal class CreateMap<T>
     {

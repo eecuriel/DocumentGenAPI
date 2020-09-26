@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using MyExpManAPI.Models;
+using DocumentGenAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,19 +11,19 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using MyExpManAPI.Helpers;
+using DocumentGenAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Context;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Context;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-using MyExpManAPI.Services;
+using DocumentGenAPI.Services;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

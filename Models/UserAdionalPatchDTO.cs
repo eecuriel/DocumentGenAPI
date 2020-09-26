@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class UserAdionalPatchDTO
     {

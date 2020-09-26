@@ -1,9 +1,9 @@
 
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
-using MyExpManAPI.Validators;
+using DocumentGenAPI.Validators;
 
-namespace MyExpManAPI.Models
+namespace DocumentGenAPI.Models
 {
     public class UserAditionalDataDTO
     {

@@ -3,21 +3,22 @@ using System.Data.SqlTypes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyExpManAPI.Entities
+namespace DocumentGenAPI.Entities
 {
-    public class DocumentIncome
+    public class DocumentExtraCharge
     {
-        
         [Key]
-        public int IdIncomeList { get; set; }
+        public int IdCharge { get; set; }
+        public string IdDocument { get; set; }
+        public int IdCurrency { get; set; }
         [Required(ErrorMessage = "Description must be inserted")]
         [MinLength(4,ErrorMessage= "The field must contain {1} characters min")]
         [MaxLength(50,ErrorMessage= "The field must contain {1} characters max")]
-        public string IncomeDescription { get; set; }
-        public int IdDocument { get; set; }
+        public string ChargeDescription { get; set; }
+    
         [Column(TypeName= "money")]
-        public decimal IncomeAmount { get; set; }
-        public int IdCurrency { get; set; }
+        public decimal ChargeAmount { get; set; }
+    
 
     }
 }

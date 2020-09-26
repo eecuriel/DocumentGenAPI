@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MyExpManAPI.Context;
-using MyExpManAPI.Entities;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Entities;
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

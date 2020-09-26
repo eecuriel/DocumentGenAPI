@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MyExpManAPI.Context;
-using MyExpManAPI.Entities;
-using MyExpManAPI.Helpers;
+using DocumentGenAPI.Context;
+using DocumentGenAPI.Entities;
+using DocumentGenAPI.Helpers;
 
-namespace MyExpManAPI.Controllers
+namespace DocumentGenAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -32,8 +32,8 @@ namespace MyExpManAPI.Controllers
             logmanager = _logmanager;
         }
 
-        // GET api/DocumentHeader/expenseheaderlist
-        [HttpGet("expenseheaderlist")]
+        // GET api/DocumentHeader/Documentheaderlist
+        [HttpGet("Documentheaderlist")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin,regularuser")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "user")]
         public  async Task<ActionResult<IEnumerable<DocumentHeader>>> Get() 
@@ -48,11 +48,11 @@ namespace MyExpManAPI.Controllers
             
         } 
 
-          // GET api/DocumentHeader/expenseheaderbyid/1
-        [HttpGet("expenseheaderbyid/{id}",Name="OneExpenseHeader")]
+          // GET api/DocumentHeader/dcoumentheaderbyid/00001
+        [HttpGet("dcoumentheaderbyid/{id}",Name="OneDocumentHeader")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles= "admin,regularuser")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles= "user")]
-        public async Task<ActionResult<DocumentHeader>> GetbyId(int id) 
+        public async Task<ActionResult<DocumentHeader>> GetbyId(string id) 
         {
             var documentheader  = await context.DocumentHeaders.FirstOrDefaultAsync(x => x.IdDocument == id);
 
@@ -71,32 +71,36 @@ namespace MyExpManAPI.Controllers
         {
             
             var iddocument = await context.DocumentHeaders.CountAsync();
+            string _IdDocument = "";
 
             if (iddocument != 0) 
             { 
                 iddocument = iddocument + 1;
+                _IdDocument = string.Concat(Enumerable.Repeat("0", 5 - iddocument.ToString().Length));
             }
 
+            _IdDocument = string.Concat(Enumerable.Repeat("0", 5 - iddocument.ToString().Length));
+
             var _documentheader = new DocumentHeader{
-                IdDocument = iddocument,
-                DocumentDescription = documentheader.DocumentDescription,
-                IdFrenquency = documentheader.IdFrenquency,
-                IdIncomeList = documentheader.IdIncomeList,
+                IdDocument = _IdDocument,
                 IdUser = documentheader.IdUser,
+                DocumentDescription = documentheader.DocumentDescription,
+                DocumentType = documentheader.DocumentType,
+                Logopic = documentheader.Logopic,
                 CreationDate = documentheader.CreationDate,
                 ModificationDate = documentheader.ModificationDate
             };
             context.Add(_documentheader);
             await context.SaveChangesAsync();
             logmanager.CreateLog("Informacion",$"{_documentheader.IdDocument} has been created");
-            return new CreatedAtRouteResult("OneExpenseHeader", new { id = documentheader.IdDocument}, documentheader);
+            return new CreatedAtRouteResult("OneDocumentHeader", new { id = documentheader.IdDocument}, documentheader);
         
         }
 
          // PUT api/DocumentHeader/UpdateExpenseHeader/1
-        [HttpPut("UpdateExpenseHeader/{id}")]
+        [HttpPut("UpdateDocumentHeader/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,  Roles= "admin,regularuser")]
-        public async Task<ActionResult> Put(int id, [FromBody] DocumentHeader documentheader)
+        public async Task<ActionResult> Put(string id, [FromBody] DocumentHeader documentheader)
         {
             
             if(id !=  documentheader.IdDocument)
@@ -108,18 +112,18 @@ namespace MyExpManAPI.Controllers
             await context.SaveChangesAsync();
             logmanager.CreateLog("Informacion",$"{documentheader.IdDocument} has been updated");
 
-            return new CreatedAtRouteResult("OneExpenseHeader", new { id = documentheader.IdDocument}, documentheader);
+            return new CreatedAtRouteResult("OneDocumentHeader", new { id = documentheader.IdDocument}, documentheader);
         }
 
-        // DELETE api/DocumentHeader/DeleteExpenseHeader/1
-        [HttpDelete("DeleteExpenseHeader/{id}")]
+        // DELETE api/DocumentHeader/DeleteDocumentHeader/00001
+        [HttpDelete("DeleteDocumentHeader/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,  Roles= "admin,regularuser")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
         
             var documentheader =  await context.DocumentHeaders.Select(x => x.IdDocument).FirstOrDefaultAsync(x => x == id);
 
-            if (documentheader == default(int))
+            if (documentheader == default(string))
             {
                 return NotFound();
             }

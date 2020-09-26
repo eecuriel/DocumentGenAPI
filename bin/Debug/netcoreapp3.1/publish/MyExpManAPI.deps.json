@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "MyExpManAPI/1.0.0": {
+      "DocumentGenAPI/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.7",
@@ -304,10 +304,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "MyExpManAPI.dll": {}
+          "DocumentGenAPI.dll": {}
         },
         "compile": {
-          "MyExpManAPI.dll": {}
+          "DocumentGenAPI.dll": {}
         }
       },
       "AutoMapper/10.0.0": {
@@ -3452,7 +3452,7 @@
     }
   },
   "libraries": {
-    "MyExpManAPI/1.0.0": {
+    "DocumentGenAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

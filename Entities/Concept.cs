@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MyExpManAPI.Entities
+namespace DocumentGenAPI.Entities
 {
     public class Concept
     {
