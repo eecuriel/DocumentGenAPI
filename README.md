@@ -5,11 +5,7 @@ The project was developed using .NET core 3.0 technology and SQL Express databas
 ## Installation
 
 Download and publish
-## Usage
 
-```swagger
-
-```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
