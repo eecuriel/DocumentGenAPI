@@ -4,12 +4,7 @@ The project was developed using .NET core 3.0 technology and SQL Express databas
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-
+Download and publish
 ## Usage
 
 ```swagger
