@@ -2,16 +2,12 @@
 MyExpManagerAPI is a simple CRUD API that can manage logger and autentication schemas.
 The project was developed using .NET core 3.0 technology and SQL Express database as a backend.
 
-Feactures:
-
-
-
- Markup : - Feactures
-              - User Authentication and Authorization with JWT
-              - User  Identity implementation
-              - Email service
-              - Migrations with Entity Framework and SQL Express
-              - Automapper implementation
+ Feactures:
+- User Authentication and Authorization with JWT
+- User  Identity implementation
+- Email service
+- Migrations with Entity Framework and SQL Express
+- Automapper implementation        
                   
         
 ## Installation
