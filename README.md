@@ -4,12 +4,16 @@ The project was developed using .NET core 3.0 technology and SQL Express databas
 
 Feactures:
 
-1- User Authentication and Authorization with JWT
-2- User  Identity implementation
-3- Email service
-4- Migrations with Entity Framework and SQL Express
-5- Automapper implementation
 
+
+ Markup : - Feactures
+              - User Authentication and Authorization with JWT
+              - User  Identity implementation
+              - Email service
+              - Migrations with Entity Framework and SQL Express
+              - Automapper implementation
+                  
+        
 ## Installation
 
 Download and publish
