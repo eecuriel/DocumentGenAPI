@@ -1,5 +1,5 @@
-# MyExpManagerAPI
-MyExpManagerAPI is a simple CRUD API that can manage logger and autentication schemas.
+# API Concept
+API examples that can be used to start any project  and implement simple CRUD to  manage logger and autentication schemas.
 The project was developed using .NET core 3.0 technology and SQL Express database as a backend.
 
  Feactures:
